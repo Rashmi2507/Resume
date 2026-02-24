@@ -1,12 +1,12 @@
-import { useState, useEffect, Dispatch, SetStateAction } from 'react';
+import { useState, useEffect} from 'react';
 import { motion } from 'framer-motion';
 
 interface NavbarProps {
   darkMode: boolean;
-  setDarkMode: Dispatch<SetStateAction<boolean>>;
+  setDarkMode: (darkMode: boolean) => void;
 }
 
-const Navbar = ({ darkMode, setDarkMode }: NavbarProps) => {
+const Navbar = ({ darkMode }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -77,7 +77,6 @@ const Navbar = ({ darkMode, setDarkMode }: NavbarProps) => {
             whileHover={{ scale: 1.1 }}
             type="button"
             aria-label="Toggle dark mode"
-            onClick={() => setDarkMode((prev) => !prev)}
             className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-yellow-400"
           >
             {darkMode ? '☀️' : '🌙'}
