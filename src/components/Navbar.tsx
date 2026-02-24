@@ -77,7 +77,7 @@ const Navbar = ({ darkMode, setDarkMode }: NavbarProps) => {
             onClick={() => setDarkMode((prev) => !prev)}
             className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-yellow-400"
           >
-            {darkMode ? '☀️' : '🌙'}
+            {darkMode}
           </motion.button>
         </div>
 
@@ -90,7 +90,7 @@ const Navbar = ({ darkMode, setDarkMode }: NavbarProps) => {
             onClick={() => setDarkMode((prev) => !prev)}
             className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-yellow-400"
           >
-            {darkMode ? '☀️' : '🌙'}
+            {darkMode}
           </motion.button>
           <button
             onClick={() => setIsOpen(!isOpen)}
