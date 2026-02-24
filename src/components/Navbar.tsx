@@ -1,12 +1,13 @@
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
 import { motion } from 'framer-motion';
 
 interface NavbarProps {
   darkMode: boolean;
-  setDarkMode: (darkMode: boolean) => void;
+  setDarkMode: Dispatch<SetStateAction<boolean>>;
 }
 
-const Navbar = ({ darkMode }: NavbarProps) => {
+const Navbar = ({ darkMode, setDarkMode }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -69,6 +70,15 @@ const Navbar = ({ darkMode }: NavbarProps) => {
               {item.name}
             </motion.button>
           ))}
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            type="button"
+            aria-label="Toggle dark mode"
+            onClick={() => setDarkMode((prev) => !prev)}
+            className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-yellow-400"
+          >
+            {darkMode ? '☀️' : '🌙'}
+          </motion.button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -77,6 +87,7 @@ const Navbar = ({ darkMode }: NavbarProps) => {
             whileHover={{ scale: 1.1 }}
             type="button"
             aria-label="Toggle dark mode"
+            onClick={() => setDarkMode((prev) => !prev)}
             className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-yellow-400"
           >
             {darkMode ? '☀️' : '🌙'}
